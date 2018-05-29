@@ -1,0 +1,22 @@
+#centos7，上建立git repository
+#本地端操作
+[blctrl@192.168.1.104 repo1] pwd
+[blctrl@192.168.1.104 repo1] /home/blctrl/repo1
+[blctrl@192.168.1.104 repo1] git init
+[blctrl@192.168.1.104 repo1] git add helloworld.txt
+[blctrl@192.168.1.104 repo1] git commit -m "helloworld txt"
+[blctrl@192.168.1.104 repo1] vi .git/cinfig   "文尾加入两行：第一行：[receive] ,第二行：denyCurrentBranch = ignore"
+
+#远端操作
+[blctrl@192.168.1.106 repo2] git init
+[blctrl@192.168.1.106 repo2] git remote add repo1 blctrl@192.168.1.104:/home/blctrl/repo1
+[blctrl@192.168.1.106 repo2] git remote -v
+	repo1 blctrl@192.168.1.104:/home/blctrl/repo1 (fetch)
+	repo2 blctrl@192.168.1.104:/home/blctrl/repo1 (pull)
+[blctrl@192.168.1.106 repo2] git repo1 fetch
+[blctrl@192.168.1.106 repo2] git pull --rebase repo1 master 
+[blctrl@192.168.1.106 repo2] git push repo1 master
+[blctrl@192.168.1.106 repo2] 
+
+#本地端需继续操作
+[blctrl@192.168.1.104 repo1] git reset --hard
