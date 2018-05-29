@@ -5,7 +5,7 @@
 [blctrl@192.168.1.104 repo1] git init
 [blctrl@192.168.1.104 repo1] git add helloworld.txt
 [blctrl@192.168.1.104 repo1] git commit -m "helloworld txt"
-[blctrl@192.168.1.104 repo1] vi .git/cinfig   "文尾加入两行：第一行：[receive] ,第二行：denyCurrentBranch = ignore"
+[blctrl@192.168.1.104 repo1] vi .git/config   "文尾加入两行：第一行：[receive] ,第二行：denyCurrentBranch = ignore"
 
 #远端操作
 [blctrl@192.168.1.106 repo2] git init
