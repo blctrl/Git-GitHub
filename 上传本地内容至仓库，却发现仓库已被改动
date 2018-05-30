@@ -1,0 +1,23 @@
+上周五，大家共同操作时，遇到该问题。
+举例：h纯、z颖皆通过命令$git clone http：//www.github.com/blctrl/test克隆test仓库到各自笔记本。
+z颖提交test1.txt到blctrl/test上，没问题。
+h纯想提交test2.txt到blctrl/test上，却出现了如下错误提示：
+
+warning: redirecting to https://github.com/blctrl/test.git/
+To http://www.github.com/blctrl/test
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'http://www.github.com/blctrl/test'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+出现这样错误的原因：h纯克隆test到本地后，远程的test又被改变了（z颖提交了test1.txt），本地和远程不一致，故出错。
+解决方法：利用git fetch拉去远程仓库所有但本地仓库中还没有的数据，并利用git pull --rebase合并更新即可。
+h纯的操作应为：
+$ git fetch origin master
+$ git pull --rebase
+$ git add test2.txt
+$ git commit -m "test2.txt from hc"
+$ git push origin master
