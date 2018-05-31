@@ -1,0 +1,7 @@
+Windows仓库git push推送内容至GitHub远程仓库时，可能遇到代号为403的错误。
+
+如，推送内容至‘https：//github.com/blctrl/test.git’时遇403错误，提示：
+fatal：unable to access ‘https：//github.com/blctrl/test.git’：The request URL returned error:403
+
+解决方法：
+找到控制面板/凭据管理器/普通凭据，将普通凭据删除即可。
