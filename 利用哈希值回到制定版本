@@ -1,0 +1,18 @@
+每次commit都会生成一个哈希值。输入$ git log --oneline会列举出哈希值及提交时到注释。
+输入$git reset --hard 某次提交对应到哈希值  就会回退到某个版本，本地源码也会变为该版本到内容。具体如下：
+zhaoyingmac:zy_mac Zelda$ vi testhistory.txt
+zhaoyingmac:zy_mac Zelda$ git add testhistory.txt 
+zhaoyingmac:zy_mac Zelda$ git commit -m "write 1"
+On branch master
+nothing to commit, working tree clean
+zhaoyingmac:zy_mac Zelda$ vi testhistory.txt 
+zhaoyingmac:zy_mac Zelda$ git add testhistory.txt 
+zhaoyingmac:zy_mac Zelda$ git commit -m "write 2"
+[master 161c02e] write 2
+ 1 file changed, 1 insertion(+)
+zhaoyingmac:zy_mac Zelda$ git log --oneline
+161c02e (HEAD -> master) write 2
+fb8a6ca writ 1
+zhaoyingmac:zy_mac Zelda$ git reset --hard fb8a6ca
+HEAD is now at fb8a6ca writ 1
+zhaoyingmac:zy_mac Zelda$ 
